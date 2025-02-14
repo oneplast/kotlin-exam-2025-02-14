@@ -18,6 +18,9 @@ fun main() {
             var content = readlnOrNull()!!.trim()
             print("작가 : ")
             var author = readlnOrNull()!!.trim()
+
+            var id = 1
+            println("${id}번 명언이 등록되었습니다.")
         }
     }
 }
