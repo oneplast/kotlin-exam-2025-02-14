@@ -1,4 +1,4 @@
-package org.example
+package org.example.domain.wiseSaying.wiseSaying.entity
 
 data class WiseSaying(
     val id: Int,
