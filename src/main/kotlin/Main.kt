@@ -8,10 +8,16 @@ fun main() {
     while (true) {
         print("명령) ")
 
-        var input = readlnOrNull()
+        // !! -> Nullable(false)
+        var input = readlnOrNull()!!.trim()
 
         if (input == "종료") {
             break
+        } else if (input == "등록") {
+            print("명언 : ")
+            var content = readlnOrNull()!!.trim()
+            print("작가 : ")
+            var author = readlnOrNull()!!.trim()
         }
     }
 }
