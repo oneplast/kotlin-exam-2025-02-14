@@ -5,21 +5,23 @@ package org.example
 fun main() {
     println("== 명언 앱 ==")
 
+    var lastId = 0;
+
     while (true) {
         print("명령) ")
 
         // !! -> Nullable(false)
-        var input = readlnOrNull()!!.trim()
+        val input = readlnOrNull()!!.trim()
 
         if (input == "종료") {
             break
         } else if (input == "등록") {
             print("명언 : ")
-            var content = readlnOrNull()!!.trim()
+            val content = readlnOrNull()!!.trim()
             print("작가 : ")
-            var author = readlnOrNull()!!.trim()
+            val author = readlnOrNull()!!.trim()
 
-            var id = 1
+            val id = ++lastId
             println("${id}번 명언이 등록되었습니다.")
         }
     }
