@@ -8,7 +8,7 @@ class WiseSayingService {
     private val wiseSayingRepository = SingletonScope.wiseSayingRepository
 
     fun write(content: String, author: String): WiseSaying {
-        return wiseSayingRepository.save(WiseSaying(content, author))
+        return wiseSayingRepository.save(WiseSaying(content = content, author = author))
     }
 
     fun isEmpty(): Boolean {
