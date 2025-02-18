@@ -1,4 +1,4 @@
-package org.example
+package org.example.global.rq
 
 class Rq(cmd: String) {
     val action: String

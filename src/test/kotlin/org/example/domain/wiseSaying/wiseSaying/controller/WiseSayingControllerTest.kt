@@ -1,12 +1,18 @@
-package org.example
+package org.example.domain.wiseSaying.wiseSaying.controller
 
-import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.Assertions.*
+import org.assertj.core.api.Assertions
+import org.example.TestRunner
+import org.example.global.bean.SingletonScope
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
-import kotlin.test.assertContains
 
-class AppTest {
+class WiseSayingControllerTest {
+    @BeforeEach
+    fun setUp() {
+        SingletonScope.wiseSayingRepository.clear()
+    }
+
     @Test
     @DisplayName("명언 작성")
     fun t1() {
@@ -18,9 +24,9 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertThat(result).contains("명언 : ")
-        assertThat(result).contains("작가 : ")
-        assertThat(result).contains("1번 명언이 등록되었습니다.")
+        Assertions.assertThat(result).contains("명언 : ")
+        Assertions.assertThat(result).contains("작가 : ")
+        Assertions.assertThat(result).contains("1번 명언이 등록되었습니다.")
     }
 
     @Test
@@ -37,8 +43,8 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertThat(result).contains("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
-        assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
+        Assertions.assertThat(result).contains("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
+        Assertions.assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
     }
 
     @Test
@@ -56,9 +62,9 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertThat(result).contains("1번 명언을 삭제하였습니다.")
-        assertThat(result).doesNotContain("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
-        assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
+        Assertions.assertThat(result).contains("1번 명언을 삭제하였습니다.")
+        Assertions.assertThat(result).doesNotContain("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
+        Assertions.assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
     }
 
     @Test
@@ -75,8 +81,8 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertThat(result).contains("1번 명언을 수정하였습니다.")
-        assertThat(result).doesNotContain("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
-        assertThat(result).contains("1 / 이순신 장군 / 나의 죽음을 적들에게 알리지 말라. 그리고 적들에게 나의 삶을 알리라.")
+        Assertions.assertThat(result).contains("1번 명언을 수정하였습니다.")
+        Assertions.assertThat(result).doesNotContain("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
+        Assertions.assertThat(result).contains("1 / 이순신 장군 / 나의 죽음을 적들에게 알리지 말라. 그리고 적들에게 나의 삶을 알리라.")
     }
 }

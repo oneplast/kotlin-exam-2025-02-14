@@ -1,14 +1,11 @@
 package org.example
 
-import org.example.domain.system.system.controller.SystemController
-import org.example.domain.wiseSaying.wiseSaying.controller.WiseSayingController
-import org.example.domain.wiseSaying.wiseSaying.entity.WiseSaying
+import org.example.global.bean.SingletonScope.systemController
+import org.example.global.bean.SingletonScope.wiseSayingController
+import org.example.global.rq.Rq
 
 class App {
     fun run() {
-        val wiseSayingController = WiseSayingController()
-        val systemController = SystemController()
-
         println("== 명언 앱 ==")
 
         while (true) {
