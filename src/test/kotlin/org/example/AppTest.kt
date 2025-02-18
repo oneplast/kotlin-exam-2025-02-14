@@ -1,5 +1,6 @@
 package org.example
 
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -17,9 +18,9 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertContains(result, "명언 : ")
-        assertContains(result, "작가 : ")
-        assertContains(result, "1번 명언이 등록되었습니다.")
+        assertThat(result).contains("명언 : ")
+        assertThat(result).contains("작가 : ")
+        assertThat(result).contains("1번 명언이 등록되었습니다.")
     }
 
     @Test
@@ -36,7 +37,27 @@ class AppTest {
             """.trimIndent()
         )
 
-        assertContains(result, "1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
-        assertContains(result, "2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
+        assertThat(result).contains("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
+        assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
+    }
+
+    @Test
+    fun `명언 삭제`() {
+        val result = TestRunner.run(
+            """
+                등록
+                나의 죽음을 적에게 알리지 말라.
+                충무공 이순신
+                등록
+                천재는 99%의 노력과 1%의 영감이다.
+                에디슨
+                삭제?id=1
+                목록
+            """.trimIndent()
+        )
+
+        assertThat(result).contains("1번 명언을 삭제하였습니다.")
+        assertThat(result).doesNotContain("1 / 충무공 이순신 / 나의 죽음을 적에게 알리지 말라.")
+        assertThat(result).contains("2 / 에디슨 / 천재는 99%의 노력과 1%의 영감이다.")
     }
 }
