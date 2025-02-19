@@ -15,4 +15,6 @@ interface WiseSayingRepository {
 
     fun clear()
     fun build()
+    fun findByAuthorLike(authorLike: String): List<WiseSaying>
+    fun findByAuthorContent(contentLike: String): List<WiseSaying>
 }
