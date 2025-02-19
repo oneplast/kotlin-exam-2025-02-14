@@ -35,4 +35,8 @@ class WiseSayingMemoryRepository : WiseSayingRepository {
         lastId = 0
         wiseSayings.clear()
     }
+
+    override fun build() {
+
+    }
 }

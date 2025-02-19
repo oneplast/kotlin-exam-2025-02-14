@@ -10,7 +10,7 @@ import org.example.domain.wiseSaying.wiseSaying.service.WiseSayingService
 object SingletonScope {
     val wiseSayingController by lazy { WiseSayingController() }
     val wiseSayingService by lazy { WiseSayingService() }
-    val wiseSayingRepository: WiseSayingRepository by lazy { WiseSayingMemoryRepository() }
+    val wiseSayingRepository: WiseSayingRepository by lazy { WiseSayingFileRepository() }
     val wiseSayingFileRepository by lazy { WiseSayingFileRepository() }
     val systemController by lazy { SystemController() }
 }

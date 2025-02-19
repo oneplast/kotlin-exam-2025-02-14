@@ -38,4 +38,13 @@ data class WiseSaying(
                 "author": "$author"
             }
         """.trimIndent()
+
+    val map: Map<String, Any>
+        get() {
+            return mapOf(
+                "id" to id,
+                "content" to content,
+                "author" to author
+            )
+        }
 }
