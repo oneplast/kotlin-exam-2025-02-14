@@ -70,6 +70,6 @@ class WiseSayingFileRepositoryTest {
 
         val foundWiseSayings = wiseSayingRepository.findAll()
 
-        assertThat(foundWiseSayings).containsExactly(wiseSaying1, wiseSaying2)
+        assertThat(foundWiseSayings).containsExactly(wiseSaying2, wiseSaying1)
     }
 }
